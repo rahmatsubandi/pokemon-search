@@ -11,7 +11,13 @@ export default function Search(props) {
           <Form.Row className="align-items-center">
             <Col sm={10} className="my-3">
               <Form.Control
-                onChange={(e) => setSearch(e.target.value)}
+                onChange={(e) => setSearch(e.target.value.toLowerCase())}
+                onKeyPress={(e) => {
+                  if (e.key === "Enter") {
+                    props.getPokemon(search);
+                    e.preventDefault();
+                  }
+                }}
                 placeholder="Find info on Pokemon that you like"
               />
             </Col>

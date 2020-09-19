@@ -39,7 +39,7 @@ export default function HomePage() {
         setPokemon(results);
         setLoading(false);
       } catch (err) {
-        console.log(err);
+        // console.log(err);
         setLoading(false);
         setError(true);
         setErrorMsg(
@@ -61,11 +61,14 @@ export default function HomePage() {
       {!loading && pokemon ? (
         <Pokemon
           name={pokemon.name}
-          sprite={pokemon.sprites.back_default}
-          sprite_front={pokemon.sprites.front_default}
+          sprite={pokemon.sprites.front_default}
+          sprite_back={pokemon.sprites.back_default}
+          sprite_shiny={pokemon.sprites.front_shiny}
+          sprite_back_shiny={pokemon.sprites.back_shiny}
           abilities={pokemon.abilities}
           stats={pokemon.stats}
           types={pokemon.types}
+          weight={pokemon.weight}
         />
       ) : null}
     </div>

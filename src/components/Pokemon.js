@@ -6,38 +6,41 @@ export default function Pokemon(props) {
     <Container className="mt-3 mb-5">
       <Row>
         <Col xs={12} md={6} className="mt-2">
-          <Card>
+          <Card className="shadow-sm">
             <Card.Header>
-              <h5>Name: {props.name}</h5>
+              <h4 className="text-center text-capitalize">{props.name}</h4>
             </Card.Header>
             <Card.Body>
               <img src={props.sprite} alt={props.name} />
-              <img src={props.sprite_front} alt={props.name_front} />
-              <h5>Abilities</h5>
+              <img src={props.sprite_back} alt={props.name_back} />
+              <img src={props.sprite_shiny} alt={props.name_shiny} />
+              <img src={props.sprite_back_shiny} alt={props.name_back_shiny} />
+              <h5>Abilities: </h5>
               {props.abilities.map((ability, key) => (
-                <div key={key}>
-                  <span>{ability.ability.name}</span>
-                </div>
+                <li key={key}>{ability.ability.name}</li>
               ))}
               <h5>Types</h5>
               {props.types.map((type, key) => (
                 <div key={key}>
-                  <span>{type.type.name}</span>
+                  <li>{type.type.name}</li>
                 </div>
               ))}
+              <h5>Weight :{props.weight}</h5>
             </Card.Body>
           </Card>
         </Col>
         <Col xs={12} md={6} className="mt-2">
-          <Card>
+          <Card className="shadow">
+            <Card.Header>
+              <h4 className="text-center">Base Status</h4>
+            </Card.Header>
             <Card.Body>
-              <h4>Base Status:</h4>
               {props.stats.map((stat, key) => (
                 <div key={key}>
                   <strong>{stat.stat.name}</strong>
                   <ProgressBar
                     now={stat.base_stat}
-                    max={255}
+                    max={200}
                     label={stat.base_stat}
                   />
                 </div>
