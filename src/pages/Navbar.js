@@ -9,11 +9,12 @@ export default function Navbarr() {
         <Navbar.Brand href="/">
           <img
             src={logo}
-            width="50"
-            height="50"
+            width="35"
+            height="35"
             className="d-inline-block align-top"
             alt="Pokemon Finder"
-          />
+          />{" "}
+          Home
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
